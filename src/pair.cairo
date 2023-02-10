@@ -20,11 +20,22 @@ from src.gt import (
     gt_add,
 )
 from src.fq12 import FQ12
+from src.towers.e12 import E12
 
 const ate_loop_count = 29793968203157093288;
 const log_ate_loop_count = 63;
 
 from starkware.cairo.common.registers import get_label_location
+
+struct GTPoint {
+    x: E12,
+    y: E12,
+}
+
+func pair(gt1: GTPoint, gt2: GTPoint) -> E12 {
+    //TODO: pair Cairo implementation
+    return gt1.x;
+}
 
 func get_e_G1G2{range_check_ptr}() -> FQ12 {
     let x = FQ12(
